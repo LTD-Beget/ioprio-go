@@ -74,7 +74,6 @@ func SetIoPrio(which Which, who uint, class Class, prio Prio) error {
     return err
 }
 
-// returns class & prio
 func GetIoPrio(which Which, who uint) (Class, Prio, error) {
     prio, _, err := syscall.Syscall(syscall.SYS_IOPRIO_GET, uintptr(which), uintptr(who), uintptr(0))
     if err != 0 {
